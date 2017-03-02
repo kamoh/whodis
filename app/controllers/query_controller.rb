@@ -18,9 +18,11 @@ class QueryController < ApplicationController
     json = HTTParty.get(composed_query)
 
     if json && json['names'] && json['names'].first && json['names'].first['parts'] && json['names'].first['parts'] && result_name = json['names'].first['parts']['first_name']
-      @result = result_name.downcase
+      @result = 'dis ' + result_name.downcase
+    elsif query != ''
+      @result = 'dis ' + NO_RESULTS_RESPONSES.sample
     else
-      @result = NO_RESULTS_RESPONSES.sample
+      @result = 'put inna numbr'
     end
 
     respond_to do |format|

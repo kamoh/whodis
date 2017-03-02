@@ -5,8 +5,8 @@
     <%= submit_tag('whodis') %>
     <p>
     <div id='results'>
-      <% if @result %>
-        dis <%= @result %>
+      <% if @result != '' %>
+        <%= @result %>
       <% end %>
     </div>
   <% end %>
