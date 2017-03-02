@@ -9,7 +9,8 @@ class QueryController < ApplicationController
   end
 
   def search
-    api_key = YAML.load_file(Rails.root.join('config').join('ktc.yml'))['api_key']
+    api_key = ENV["API_KEY"]
+
     query = params['q']
 
     composed_query = BASE_URI + '?api_key=' + api_key + '&phone=' + query

@@ -11,5 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-/config/ktc.yml
 .byebug_history
+/config/application.yml
