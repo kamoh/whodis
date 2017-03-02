@@ -1,5 +1,26 @@
-<%= form_tag('/search', method: 'get') do %>
-  <%= label_tag(:q, 'whodis') %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag('whodis') %>
-<% end %>
+<div class="container search-bar">
+  <%= form_tag('/search', method: 'get', id: 'search-bar') do %>
+    <%= text_field_tag(:q, params['q'], placeholder: '212-424-0935') %>
+    <p>
+    <%= submit_tag('whodis') %>
+    <p>
+    <div id='results'>
+      <% if @result %>
+        dis <%= @result %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<style type="text/css">
+  #search-bar {
+    text-align: center;
+    margin-top: 10%;
+  }
+  input {
+    margin-top: 3%;
+  }
+  #results {
+    margin-top: 3%;
+  }
+</style>
